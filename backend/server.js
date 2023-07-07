@@ -13,6 +13,8 @@ app.use(express.urlencoded({extended: false}))
 
 
 app.use('/api/foods', require('./routes/foodRoutes'))
+app.use('/api/chefs', require('./routes/chefRoutes'))
+
 
 app.use(errorHandler)
 

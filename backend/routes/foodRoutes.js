@@ -4,8 +4,10 @@ const {getFoods,
     setFoods, 
     updateFoods,
      deleteFoods} = require('../controllers/foodController')
+     const { protect } = require('../middleware/authMiddlware')
 
-router.route('/').get(getFoods).post(setFoods)
-router.route('/:id').put(updateFoods).delete(deleteFoods)
+
+router.route('/').get(protect, getFoods).post(protect,setFoods)
+router.route('/:id').put(protect, updateFoods).delete(protect, deleteFoods)
 
 module.exports = router

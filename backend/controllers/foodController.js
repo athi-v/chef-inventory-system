@@ -1,5 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Food = require('../models/foodModel')
+const Chef = require('../models/chefModel')
+
 
 
 // @descr Get Foods
@@ -7,7 +9,7 @@ const Food = require('../models/foodModel')
 // @access Private
 const getFoods = asyncHandler(async (req, res) => {
 
-    const foods = await Food.find()
+    const foods = await Food.find({chef: req.chef})
 
     res.status(200).json(foods)
 })
@@ -23,8 +25,9 @@ throw new Error('Please add a text')
 
 const food = await Food.create({
     text: req.body.text,
+    chef: req.chef.id,
 })
-    res.status(200).json({message: 'Set Foods'})
+    res.status(200).json(food)
 })
 
 // @descr Update Foods
@@ -36,7 +39,18 @@ const updateFoods = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Food not found')
     }
-    const updateFood = await Food.findByIdUpdate(req.params.id, req.body, {
+    const chef = await Chef.findById(req.chef.id)
+
+if(!chef) {
+    res.status(400)
+    throw new Error('User not found')
+}
+if(food.chef.toString() !== chef.id) {
+    res.status(401)
+    throw new Error('Chef not authorized')
+}
+
+    const updateFood = await Food.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
 
     })
@@ -47,16 +61,32 @@ const updateFoods = asyncHandler(async (req, res) => {
 // @route DELETE /api/foods/:id
 // @access Private
 const deleteFoods = asyncHandler(async (req, res) => {
-    const food = await Food.findById(req.params.id)
-    if(!food) {
-        res.status(400)
-        throw new Error('Food not found')
-    }
+    try {
+      const food = await Food.findById(req.params.id);
+      if (!food) {
+        res.status(400).json({ error: 'Food not found' });
+        return;
+      }
 
-    await food.remove()
-    
-    res.status(200).json({id: req.params.id})
-})
+      const chef = await Chef.findById(req.chef.id)
+
+      if(!chef) {
+          res.status(400)
+          throw new Error('User not found')
+      }
+      if(food.chef.toString() !== chef.id) {
+          res.status(401)
+          throw new Error('Chef not authorized')
+      }
+  
+      await food.deleteOne();
+  
+      res.status(200).json({ id: req.params.id });
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+  
 
 module.exports = {
     getFoods, setFoods, updateFoods, deleteFoods,
