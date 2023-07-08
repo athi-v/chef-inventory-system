@@ -49,7 +49,7 @@ const registerChef = asyncHandler(async (req, res) => {
 // @route POST /api/chefs
 // @access Public
 const loginChef = asyncHandler(async (req, res) => {
-    const {name, email, password} = req.body
+    const {email, password} = req.body
     const chef = await Chef.findOne({email}) 
     if(chef && (await bcrypt.compare(password, chef.password))) {
         res.status(201).json({
@@ -75,7 +75,6 @@ res.status(200).json({
     id: _id,
     name,
     email,
-
 
 })
 })
