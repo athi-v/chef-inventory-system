@@ -14,17 +14,21 @@ const getFoods = asyncHandler(async (req, res) => {
     res.status(200).json(foods)
 })
 
-// @descr Set Foods
+// @descr Set Foods 
 // @route SET /api/foods
 // @access Private
 const setFoods = asyncHandler(async (req, res) => {
-if(!req.body.text) {
+if(!req.body.text || !req.body.description || !req.body.typeList || !req.body.quantity || !req.body.price) {
     res.status(400)
 throw new Error('Please add a text')
 }    
 
 const food = await Food.create({
     text: req.body.text,
+    description: req.body.description,
+    typeList: req.body.typeList,
+    quantity: req.body.quantity,
+    price: req.body.price,
     chef: req.chef.id,
 })
     res.status(200).json(food)

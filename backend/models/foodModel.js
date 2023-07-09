@@ -10,12 +10,35 @@ const foodSchema = mongoose.Schema({
     text: {
         type: String,
         required: [true, 'Please add a text']
+    
     },
+
+    description: {
+        type: String,
+        required: [true, 'Please add a description']
+    },
+
+    typeList: {
+        type: String,
+        required: [true, 'Please add a type']
+    },
+
+    quantity: {
+        type: Number,
+        required: [true, 'Please add a quantity']
+
+    },
+    price: {
+        type: Number,
+        required: [true, 'Please add a price']
+
+    }
 },
 
      {
         timestamps: true,
      }
+
 
 )
 

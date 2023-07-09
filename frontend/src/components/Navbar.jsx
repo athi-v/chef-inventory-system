@@ -1,7 +1,7 @@
 import React from 'react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import {useSelector, useDispatch} from 'react-redux'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { reset, logout } from '../features/auth/authSlice'
 const Navbar = () => {
 
@@ -27,9 +27,13 @@ navigate('/login')
   </div> 
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-    <ul className="menu p-4 w-80 h-full bg-white text-white -content">
-      {/* Sidebar content here */}
-<button onClick={onLogout} className='bg-red-400 py-2 rounded' >
+    <ul className="menu p-4 w-80 h-full bg-white -content">
+<Link to='/ingredients'>Ingredients and Toppings</Link>
+<Link to='/beverages'>Beverages</Link>
+<Link to='/kota'>Kota Varieties</Link>
+<Link to='/side'>Side Items</Link>
+
+<button onClick={onLogout} className='bg-red-400 py-2 rounded text-white' >
   Sign Out
 </button>    </ul>
   </div>
