@@ -1,6 +1,21 @@
 import React from 'react'
 import {AiOutlineMenu} from 'react-icons/ai'
+import {useSelector, useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import { reset, logout } from '../features/auth/authSlice'
 const Navbar = () => {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const {chef} = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+dispatch(logout())
+dispatch(reset())
+navigate('/')
+  }
+
   return (
 <div className='flex items-center justify-between mx-auto max-w-[90%] py-3'>
 
@@ -12,15 +27,15 @@ const Navbar = () => {
   </div> 
   <div className="drawer-side">
     <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+    <ul className="menu p-4 w-80 h-full bg-white text-white -content">
       {/* Sidebar content here */}
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
-    </ul>
+<button onClick={onLogout} className='bg-red-400 py-2 rounded' >
+  Sign Out
+</button>    </ul>
   </div>
 </div>
 
-<div><p>Good Morning</p></div>
+<div><p>Good Morning, {chef && chef?.name}</p></div>
 
 
 </div>

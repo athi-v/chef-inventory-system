@@ -1,5 +1,9 @@
-import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {Link, useNavigate } from 'react-router-dom'
+import {toast} from 'react-toastify'
+import { login, reset } from '../features/auth/authSlice'
+import Loader from '../components/common/Loader'
 
 const Login = () => {
 
@@ -9,6 +13,28 @@ const Login = () => {
    })
  
    const {email, password} = formData
+
+   
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const {chef, isLoading, isError, isSuccess, message} = useSelector(
+    (state) => state.auth)
+
+
+  useEffect(() => {
+    if(isError) {
+      toast.error(message)
+    }
+    if(isSuccess || chef) {
+      navigate('/dashboard')
+    }
+
+    dispatch(reset())
+
+  }, [chef, isError, isSuccess, message, navigate, dispatch])
+
+
  
  const onChange = (e) =>
  {
@@ -22,7 +48,19 @@ const Login = () => {
  const onSubmit = (e) =>
  {
  e.preventDefault()
- }
+ const chefData = {
+   email, password,
+}
+dispatch(login(chefData))
+console.log(chefData)
+}
+
+if(isLoading) {
+  <Loader />
+}
+
+
+ 
 
   return (
     <div className="section ">

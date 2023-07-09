@@ -1,5 +1,10 @@
-import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {Link, useNavigate } from 'react-router-dom'
+import {toast} from 'react-toastify'
+import { register, reset } from '../features/auth/authSlice'
+import Loader from '../components/common/Loader'
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +15,27 @@ const Register = () => {
   })
 
   const {name, email, password, password2} = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const {chef, isLoading, isError, isSuccess, message} = useSelector(
+    (state) => state.auth)
+
+
+  useEffect(() => {
+    if(isError) {
+      toast.error(message)
+    }
+    if(isSuccess || chef) {
+      navigate('/dashboard')
+    }
+
+    dispatch(reset())
+
+  }, [chef, isError, isSuccess, message, navigate, dispatch])
+
+
 
 const onChange = (e) =>
 {
@@ -23,6 +49,21 @@ setFormData((dataState) => ({
 const onSubmit = (e) =>
 {
 e.preventDefault()
+
+if(password !== password2) {
+  toast.error('Passwords do not match!')
+}
+else {
+  const chefData = {
+    name, email, password,
+  }
+  dispatch(register(chefData))
+  console.log(chefData)
+}
+}
+
+if(isLoading) {
+  <Loader />
 }
 
   return (
@@ -53,7 +94,7 @@ e.preventDefault()
 
   <div className='flex flex-col gap-2'>
     <p className='text-sm font-semibold'>Confirm Password</p>
-    <input type="password" id="password2" value={password2} name="password2" placeholder='Confirm Password' className='border-[1px] rounded p-2'/>
+    <input type="password" id="password2" value={password2} name="password2" onChange={onChange} placeholder='Confirm Password' className='border-[1px] rounded p-2'/>
   </div>
 
 <div>

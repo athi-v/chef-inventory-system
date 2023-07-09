@@ -39,13 +39,12 @@ const updateFoods = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Food not found')
     }
-    const chef = await Chef.findById(req.chef.id)
 
-if(!chef) {
+if(!req.chef) {
     res.status(400)
     throw new Error('User not found')
 }
-if(food.chef.toString() !== chef.id) {
+if(food.chef.toString() !== req.chef.id) {
     res.status(401)
     throw new Error('Chef not authorized')
 }
@@ -68,13 +67,12 @@ const deleteFoods = asyncHandler(async (req, res) => {
         return;
       }
 
-      const chef = await Chef.findById(req.chef.id)
 
-      if(!chef) {
+      if(!req.chef) {
           res.status(400)
           throw new Error('User not found')
       }
-      if(food.chef.toString() !== chef.id) {
+      if(food.chef.toString() !== req.chef.id) {
           res.status(401)
           throw new Error('Chef not authorized')
       }

@@ -7,7 +7,7 @@ const {getFoods,
      const { protect } = require('../middleware/authMiddlware')
 
 
-router.route('/').get(protect, getFoods).post(protect,setFoods)
+router.route('/').get(protect, getFoods).post(protect, setFoods)
 router.route('/:id').put(protect, updateFoods).delete(protect, deleteFoods)
 
 module.exports = router
