@@ -20,13 +20,11 @@ console.log(message)
   }
   if(!chef)
   {
-  navigate('/')}
+  navigate('/login')}
 
   dispatch(foodGet())
 
-  return () => {
-    dispatch(reset())
-  }
+
 }, [chef, navigate, isError, message, dispatch])
 
 if(isLoading) {
