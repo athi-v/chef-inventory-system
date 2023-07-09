@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {foodCreate} from '../features/food/foodSlice'
 import Loader from './common/Loader'
+import Navbar from './Navbar'
 
 const Foodform = () => {
 
@@ -46,6 +47,7 @@ const Foodform = () => {
       quantity: 0,
       price: 0,
  })
+ navigate('/dashboard')
 } 
 
 if(isLoading) {
@@ -54,9 +56,11 @@ if(isLoading) {
 
   return (
 <div className="section ">
-      <div className="container h-[100vh] flex m-auto items-center justify-center">
+<Navbar />
+
+      <div className="container md:h-[150vh] flex m-auto items-center justify-center">
       <div className='flex flex-col md:shadow-xl p-7 rounded-md gap-5 w-[90%] md:w-[50%]'>
-      <div><h1 className='text-center font-bold text-2xl'>Add Item</h1></div>
+      <div><h1 className='text-center font-bold text-2xl'>Add Food Item</h1></div>
 
 <div>
 <form onSubmit={onSubmit} className='flex flex-col gap-8'>
@@ -102,7 +106,7 @@ if(isLoading) {
  
 
 <div>
-<button type="submit" className='bg-blue-400 py-5 rounded text-white font-semibold w-full'>
+<button type="submit" className='bg-blue-500 py-5 rounded text-white font-semibold w-full'>
     Add Item
   </button>
 

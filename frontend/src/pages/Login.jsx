@@ -66,14 +66,14 @@ if(isLoading) {
     <div className="section ">
       <div className="container h-[100vh] flex m-auto items-center justify-center">
       <div className='flex flex-col md:shadow-xl p-7 rounded-md gap-5 w-[90%] md:w-[40%]'>
-      <div><h1 className='text-center font-bold'>Kota King</h1></div>
-      <div><p className='text-center font-bold text-2xl'>Welcome</p></div>
-      <div><p className='text-center text-sm'>Sign up to Kota King and continue</p></div>
+      <div><p className='text-center font-bold text-4xl'>Welcome  <span className='font-bold  text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Cheffy</span>👨‍🍳
+</p></div>
+      <div><p className='text-center text-sm'>Sign in to  <span className='font-bold  text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Cheffy</span> and continue</p></div>
 
 <div>
 <form onSubmit={onSubmit} className='flex flex-col gap-8'>
 
-
+ 
 <div className='flex flex-col gap-2'>
     <p className='text-sm font-semibold'>Email</p>
     <input type="email" id="email" value={email} name="email" onChange={onChange}  placeholder='Email' className='border-[1px] rounded p-2'/>
@@ -87,7 +87,7 @@ if(isLoading) {
  
 
 <div>
-<button type="submit" className='bg-blue-400 py-5 rounded text-white font-semibold w-full'>
+<button type="submit" className='bg-blue-500 py-5 rounded text-white font-semibold w-full'>
     Sign In
   </button>
 
@@ -96,7 +96,8 @@ if(isLoading) {
 
 
 
-<div className='py-5'><p className='text-sm'>Don't have an account? <Link to='/register'><span className='font-semibold text-blue-400'>Sign up</span></Link> </p></div>
+<div className='py-5'><p className='text-sm'>Don't have an account? <Link to='/register'><span className='font-semibold text-blue-500'>Sign up</span></Link> </p></div>
+<div className='py-2'><p className='text-sm'>Go back <Link to='/'><span className='font-semibold text-blue-500'>Home</span></Link> </p></div>
 
 </div>
 

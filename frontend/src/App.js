@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Beverages from './components/Beverages';
+import Foodform from './components/Foodform';
 import Ingredients from './components/Ingredients';
 import Kota from './components/Kota';
 import Side from './components/Side';
@@ -20,6 +21,7 @@ function App() {
     <Route path='/dashboard' element={<Dashboard/>} />
     <Route path='/login' element={<Login/>} />
     <Route path='/register' element={<Register/>} />
+    <Route path='/Add' element={<Foodform/>} />
     <Route path='/kota' element={<Kota />} />
         <Route path='/side' element={<Side />} />
 
