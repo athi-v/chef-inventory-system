@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {foodCreate} from '../features/food/foodSlice'
@@ -31,6 +31,14 @@ const Foodform = () => {
       }))
       }
        
+  const {chef} = useSelector((state) => state.auth)
+
+
+  useEffect(() => {
+    if(!chef)
+    {
+    navigate('/login')}
+  }, [chef])
 
      
  const onSubmit = (e) =>

@@ -7,6 +7,7 @@ import Ingredients from './components/Ingredients';
 import Kota from './components/Kota';
 import Side from './components/Side';
 import Dashboard from './pages/Dashboard';
+import ErrorPage from './pages/ErrorPage';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -27,6 +28,8 @@ function App() {
 
         <Route path='/beverages' element={<Beverages />} />
         <Route path='/ingredients' element={< Ingredients />} />
+        <Route path='*' element={< ErrorPage />} />
+
 
 
        

@@ -71,7 +71,7 @@ if(isLoading) {
     <div className="section ">
       <div className="container h-auto md:h-[115vh] flex m-auto items-center justify-center">
       <div className='flex flex-col md:shadow-xl p-7 rounded-md gap-5 w-[90%] md:w-[40%]'>
-      <div><p className='text-center font-bold text-4xl'>Welcome  <span className='font-bold  text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Cheffy</span>👨‍🍳
+      <div><p className='text-center font-bold text-4xl'>Welcome to <span className='font-bold  text-transparent text-4xl bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Cheffy</span>👨‍🍳
 </p></div>
       <div><p className='text-center text-sm'>Sign in to  <span className='font-bold  text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Cheffy</span> and continue</p></div>
 
