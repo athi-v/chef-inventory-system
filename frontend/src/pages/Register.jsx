@@ -65,7 +65,7 @@ const onSubmit = (data) => {
 
 
 if(isLoading) {
-  <Loader />
+  return <Loader />
 }
 
   return (

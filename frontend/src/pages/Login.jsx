@@ -61,7 +61,7 @@ dispatch(login(data))
 }
 
 if(isLoading) {
-  <Loader />
+  return <Loader />
 }
 
 

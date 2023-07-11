@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { foodDelete, foodGet, foodUpdate } from '../features/food/foodSlice'
 import {AiOutlineDelete, AiFillEdit} from 'react-icons/ai'
+import Loader from './common/Loader'
 
 const FoodItem = ({food}) => {
 
@@ -38,10 +39,18 @@ const FoodItem = ({food}) => {
 );
 
 
+const {isLoading} = useSelector(
+  (state) => state.food)
+
+
+
 useEffect(() => {
   setUpdatedText({...food}); 
 }, [food]);
 
+if(isLoading) {
+  return <Loader />
+}
 
   return (
     <div>
