@@ -6,7 +6,6 @@
 ```Node.js```
 ```Database MongoDB```
 
-
 #### to run locally:
 ```
 $ git clone https://github.com/athi-v/chef-inventory-system.git
@@ -36,10 +35,7 @@ Backend
 ```
 Frontend
 
-<<<<<<< HEAD
-=======
      "@hookform/resolvers": "^3.1.1",
->>>>>>> c6b67e94 (improved frontend, added validation login + registration)
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -49,23 +45,17 @@ Frontend
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-=======
     "react-hook-form": "^7.45.1",
     "react-hook-form-resolvers": "^0.0.1",
->>>>>>> c6b67e94 (improved frontend, added validation login + registration)
     "react-icons": "^4.10.1",
     "react-loader-spinner": "^5.3.4",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "react-toastify": "^9.1.3"
-=======
     "react-toastify": "^9.1.3",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
->>>>>>> c6b67e94 (improved frontend, added validation login + registration)
     "daisyui": "^3.2.1",
     "tailwindcss": "^3.3.2"
 ```
