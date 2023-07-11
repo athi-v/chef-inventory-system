@@ -13,7 +13,11 @@ const initialState = {
 
 
 //Register Chef
+<<<<<<< HEAD
 export const register = createAsyncThunk('auth/register', async (chef, thunkAPI) => {
+=======
+export const registers = createAsyncThunk('auth/register', async (chef, thunkAPI) => {
+>>>>>>> c6b67e94 (improved frontend, added validation login + registration)
  try {
     return await authService.register(chef) 
  }   
@@ -53,15 +57,26 @@ export const authSlice = createSlice({
     },
     extraReducers: (builder) => {
     builder
+<<<<<<< HEAD
     .addCase(register.pending, (state) => {
         state.isLoading = true
     })
     .addCase(register.fulfilled, (state, action) => {
+=======
+    .addCase(registers.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(registers.fulfilled, (state, action) => {
+>>>>>>> c6b67e94 (improved frontend, added validation login + registration)
         state.isLoading = false
         state.isSuccess = true
         state.chef = action.payload
     })
+<<<<<<< HEAD
     .addCase(register.rejected, (state, action) => {
+=======
+    .addCase(registers.rejected, (state, action) => {
+>>>>>>> c6b67e94 (improved frontend, added validation login + registration)
         state.isLoading = false
         state.isError = true
         state.message = action.payload

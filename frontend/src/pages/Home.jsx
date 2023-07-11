@@ -39,7 +39,11 @@ function Home() {
 </div>
 
 <div className='flex justify-center items-center bg-blue-500 text-white rounded p-2 hover:bg-blue-600 w-[100px]'>
+<<<<<<< HEAD
     <a href='https://github.com/athi-v/chef-inventory-system' target='_blank'>
+=======
+    <a href='https://github.com/athi-v/chef-inventory-system' target='__blank'>
+>>>>>>> c6b67e94 (improved frontend, added validation login + registration)
 Github</a>
     </div>
 
