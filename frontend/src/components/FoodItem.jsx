@@ -57,9 +57,7 @@ const FoodItem = ({food}) => {
       });
     };
 
-  const updatedFoodItem = useSelector((state) =>
-  state.food.food.find((item) => item._id === food._id)
-);
+
 
 
 const {isLoading} = useSelector(

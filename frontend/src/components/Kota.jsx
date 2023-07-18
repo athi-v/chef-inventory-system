@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
+// eslint-disable-next-line
 import {Chart as ChartJS} from 'chart.js/auto'
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -46,7 +47,7 @@ const Kota = () => {
     if(!chef)
     {
     navigate('/login')}
-  }, [chef])
+  }, [chef, navigate])
 
   const {food} = useSelector((state) => state.food)
 
@@ -73,31 +74,32 @@ const Kota = () => {
       <button className='bg-blue-500 rounded p-2 text-white text-semibold'>Back</button>
     </Link >
     </div>
+    <div><h1 className='text-3xl font-semibold'>Kota Varieties</h1></div>
 
-    <div className="stats shadow flex items-center mx-auto w-[90%] my-5">
+
+    <div className="rounded shadow-md flex justify-between items-center mx-auto w-full my-5 p-5 lg:p-10">
   
-  <div className="stat place-items-center">
-    <div className="stat-title">Total Cost</div>
-    <div className="stat-value"> R{totalCash}
+  <div className="text-center place-items-center">
+    <div className="font-medium text-gray-400">Total Cost</div>
+    <div className="font-bold text-3xl lg:text-7xl"> R{totalCash}
 </div>
   </div>
   
-  <div className="stat place-items-center">
-    <div className="stat-title">Total Quantity</div>
-    <div className="stat-value">{totalQuantity}</div>
+  <div className="text-center place-items-center">
+    <div className="font-medium text-gray-400">Total Quantity</div>
+    <div className="font-bold text-3xl lg:text-7xl">{totalQuantity}</div>
   </div>
   
   
 </div>
 
 
-<div><h1 className='text-3xl font-semibold'>Kota Varieties</h1></div>
 <div style={{ height: 'auto', width: 'auto' }}>
         <Bar data={chartData} options={chartOptions} />
       </div>
 
 <div className="overflow-hidden">
-      <table className="table table-zebra">
+<table className="table-auto w-full text-left">
         <thead>
           <tr>
             <th>Name</th>

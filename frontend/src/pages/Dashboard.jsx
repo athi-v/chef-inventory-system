@@ -2,10 +2,9 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../components/common/Loader'
+import Drawer from '../components/Drawer'
 import FoodItem from '../components/FoodItem'
-
-import Navbar from '../components/Navbar'
-import { foodGet, reset } from '../features/food/foodSlice'
+import { foodGet } from '../features/food/foodSlice'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -27,7 +26,7 @@ console.log(message)
 }, [chef, navigate, isError, message, dispatch])
 
 if(isLoading) {
-  <Loader />
+  <Loader/>
 }
   
 const totalCash = food.reduce((acc, curr) => acc + curr.price, 0);
@@ -36,23 +35,23 @@ const totalQuantity = food.reduce((acc, curr) => acc + curr.quantity, 0);
 
   return (
     <div >
-<Navbar />
+<Drawer />
 
 <div className='w-[90%] mx-auto pt-10'>
   <h1 className='text-3xl font-bold'>Dashboard</h1>
 </div>
 
-<div className="stats shadow flex items-center mx-auto w-[90%] my-5">
+<div className="rounded shadow-md flex justify-between items-center mx-auto w-[90%] my-5 p-5 lg:p-10">
   
-  <div className="stat place-items-center">
-    <div className="stat-title">Total Cost</div>
-    <div className="stat-value"> R{totalCash}
+  <div className="text-center place-items-center">
+    <div className="font-medium text-gray-400">Total Cost</div>
+    <div className="font-bold text-3xl lg:text-7xl"> R{totalCash}
 </div>
   </div>
   
-  <div className="stat place-items-center">
-    <div className="stat-title">Total Quantity</div>
-    <div className="stat-value">{totalQuantity}</div>
+  <div className="text-center place-items-center">
+    <div className="font-medium text-gray-400">Total Quantity</div>
+    <div className="font-bold text-3xl lg:text-7xl">{totalQuantity}</div>
   </div>
   
   

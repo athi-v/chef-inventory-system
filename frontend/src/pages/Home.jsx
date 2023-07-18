@@ -45,15 +45,9 @@ Github</a>
     </div>
 
     <div>
-    <h1 className='text-white font-semibold text-md'>To run locally:</h1>
-    <div className="mockup-code w-[100px] md:w-auto">
-  <pre data-prefix="$"><code>git clone https://github.com/athi-v/chef-inventory-system.git</code></pre>
-  <pre data-prefix="$"><code>cd chef-inventory-system</code></pre>
-  <pre data-prefix="$"><code>npm install</code></pre>
-  <pre data-prefix="$"><code>cd frontend</code></pre>
-  <pre data-prefix="$"><code>npm install</code></pre>
-  <pre data-prefix="$"><code>cd ../</code></pre>
-  <pre data-prefix="$"><code>npm run dev</code></pre>
+    <h1 className='text-white font-semibold text-md'>To run on docker:</h1>
+    <div className="bg-gray-200 p-5 rounded">
+  <pre data-prefix="$"><code>docker-compose up</code></pre>
 
 
 </div>

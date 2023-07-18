@@ -9,7 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 
 import {foodCreate} from '../features/food/foodSlice'
-import Navbar from './Navbar'
+import Drawer from './Drawer'
 import Loader from './common/Loader'
 
 const schema = yup.object().shape({
@@ -35,15 +35,13 @@ const Foodform = () => {
     price: '',
   });
 
-  const { text, description, typeList, quantity, price } = foodData;
-
-
+  const foodDatas = foodData // eslint-disable-line
 
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const {food, isLoading, isError, isSuccess, message} = useSelector(
+    const { isLoading} = useSelector(
       (state) => state.food)
   
 
@@ -55,12 +53,12 @@ const Foodform = () => {
     if(!chef)
     {
     navigate('/login')}
-  }, [chef])
+  }, [chef, navigate])
 
      
- const onSubmit = (data) =>
+ const onSubmit = (foodData) =>
  {
- dispatch(foodCreate(data))
+ dispatch(foodCreate(foodData))
 
  setFoodData({
   text: '',
@@ -79,9 +77,9 @@ if(isLoading) {
 
   return (
 <div className="section ">
-<Navbar />
+<Drawer />
 
-      <div className="container md:h-[150vh] flex m-auto items-center justify-center">
+      <div className="container md:h-[110vh] flex m-auto items-center justify-center">
       <div className='flex flex-col md:shadow-xl p-7 rounded-md gap-5 w-[90%] md:w-[50%]'>
       <div><h1 className='text-center font-bold text-2xl'>Add Food Item</h1></div>
 
